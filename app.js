@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
+require('dotenv').config();
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -15,6 +16,7 @@ const port = process.env.PORT
 //Connect to mongoose database
 mongoose.connect(connectionStr);
 
+//Initial schema for 
 const itemSchema = mongoose.Schema({
   name: {
     type: String
