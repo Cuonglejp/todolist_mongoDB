@@ -84,8 +84,9 @@ async function deleteItemInToDoList(collection, itemId){
 
 //Get all items (name and id)
 app.get("/", async function(req, res) {
-  const items = (await getAllItemsInToToDoList(Item)).map(item => ({name : item.name, id : item._id}) );
-  res.render("list", {listTitle: "Today", newListItems: items});
+  const orginalItems  = await(await getAllItemsInToToDoList(Item));
+  //const items = (await getAllItemsInToToDoList(Item)).map(item => ({name : item.name, id : item._id}) );
+  res.render("list", {listTitle: "Today", newListItems: orginalItems});
 });
 
 //Add new item
